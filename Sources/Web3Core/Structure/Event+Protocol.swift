@@ -46,20 +46,22 @@ public protocol EventParserProtocol {
 
 /// Enum for the most-used Ethereum networks. Network ID is crucial for EIP155 support
 public enum Networks {
-    case Goerli
-    case Rinkeby
+    case Sepolia
     case Mainnet
-    case Ropsten
-    case Kovan
+    case FNCY
+    case FNCYtestnet
+    case BSC
+    case BSCtestnet
     case Custom(networkID: BigUInt)
 
     public var name: String {
         switch self {
-        case .Goerli: return "goerli"
-        case .Rinkeby: return "rinkeby"
-        case .Ropsten: return "ropsten"
+        case .Sepolia: return "sepolia"
         case .Mainnet: return "mainnet"
-        case .Kovan: return "kovan"
+        case .FNCY: return "fncy"
+        case .FNCYtestnet: return "fncy_testnet"
+        case .BSC: return "bsc"
+        case .BSCtestnet: return "bsc_testnet"
         case .Custom: return ""
         }
     }
@@ -68,27 +70,30 @@ public enum Networks {
         switch self {
         case .Custom(let networkID): return networkID
         case .Mainnet: return BigUInt(1)
-        case .Ropsten: return BigUInt(3)
-        case .Rinkeby: return BigUInt(4)
-        case .Goerli: return BigUInt(5)
-        case .Kovan: return BigUInt(42)
+        case .Sepolia: return BigUInt(11155111)
+        case .FNCY: return BigUInt(73)
+        case .FNCYtestnet: return BigUInt(923018)
+        case .BSC: return BigUInt(56)
+        case .BSCtestnet: return BigUInt(97)
         }
     }
 
-    static let allValues = [Mainnet, Ropsten, Kovan, Rinkeby]
+    static let allValues = [Mainnet, Sepolia, FNCY, FNCYtestnet, BSC, BSCtestnet]
 
     public static func fromInt(_ networkID: UInt) -> Networks {
         switch networkID {
         case 1:
             return Networks.Mainnet
-        case 3:
-            return Networks.Ropsten
-        case 4:
-            return Networks.Rinkeby
-        case 5:
-            return Networks.Goerli
-        case 42:
-            return Networks.Kovan
+        case 56:
+            return Networks.BSC
+        case 97:
+            return Networks.BSCtestnet
+        case 73:
+            return Networks.FNCY
+        case 923018:
+            return Networks.FNCYtestnet
+        case 11155111:
+            return Networks.Sepolia
         default:
             return Networks.Custom(networkID: BigUInt(networkID))
         }

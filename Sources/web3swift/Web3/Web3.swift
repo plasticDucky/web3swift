@@ -22,32 +22,10 @@ extension Web3 {
         let infura = try await InfuraProvider(net: Networks.Mainnet, accessToken: accessToken)
         return Web3(provider: infura)
     }
-
+    
     /// Initialized Web3 instance bound to Infura's goerli provider.
-    public static func InfuraGoerliWeb3(accessToken: String? = nil) async throws -> Web3 {
-        let infura = try await InfuraProvider(net: Networks.Goerli, accessToken: accessToken)
+    public static func InfuraSepoliaWeb3(accessToken: String? = nil) async throws -> Web3 {
+        let infura = try await InfuraProvider(net: Networks.Sepolia, accessToken: accessToken)
         return Web3(provider: infura)
     }
-
-    /// Initialized Web3 instance bound to Infura's rinkeby provider.
-    @available(*, deprecated, message: "This network support was deprecated by Infura")
-    public static func InfuraRinkebyWeb3(accessToken: String? = nil) async throws -> Web3 {
-        let infura = try await InfuraProvider(net: Networks.Rinkeby, accessToken: accessToken)
-        return Web3(provider: infura)
-    }
-
-    /// Initialized Web3 instance bound to Infura's ropsten provider.
-    @available(*, deprecated, message: "This network support was deprecated by Infura")
-    public static func InfuraRopstenWeb3(accessToken: String? = nil) async throws -> Web3 {
-        let infura = try await InfuraProvider(net: Networks.Ropsten, accessToken: accessToken)
-        return Web3(provider: infura)
-    }
-
-    /// Initialized Web3 instance bound to Infura's kovan provider.
-    @available(*, deprecated, message: "This network support was deprecated by Infura")
-    public static func InfuraKovanWeb3(accessToken: String? = nil) async throws -> Web3 {
-        let infura = try await InfuraProvider(net: Networks.Kovan, accessToken: accessToken)
-        return Web3(provider: infura)
-    }
-
 }

@@ -19,9 +19,7 @@ public extension ENS {
             switch web3.provider.network {
             case .Mainnet?:
                 registryContractAddress = EthereumAddress("0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e")
-            case .Rinkeby?:
-                registryContractAddress = EthereumAddress("0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e")
-            case .Ropsten?:
+            case .Sepolia?:
                 registryContractAddress = EthereumAddress("0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e")
             default:
                 let url = web3.provider.url.absoluteString
